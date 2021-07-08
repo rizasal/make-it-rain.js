@@ -1,0 +1,22 @@
+{
+  "name": "make-it-rain",
+  "version": "1.0.0",
+  "description": "Add rain to your websites",
+  "main": "make-it-rain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rizasal/make-it-rain.js.git"
+  },
+  "author": "Riza Sal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rizasal/make-it-rain.js/issues"
+  },
+  "homepage": "https://github.com/rizasal/make-it-rain.js#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6"
+  }
+}

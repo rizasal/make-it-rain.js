@@ -1,4 +1,4 @@
-function makeItRain(options) {
+export default function makeItRain(options) {
     console.log('All assets are loaded')
 
     var canvas = document.createElement('canvas');
@@ -144,5 +144,3 @@ function makeItRain(options) {
   
 
 }
-
-window.addEventListener('load', makeItRain)

@@ -45,18 +45,23 @@ div {
     background-color: blue;
 }
 .div4 {
-    margin-left: 3em;
+    margin: auto;
     grid-row-start: 2;
     grid-column-start: 1;
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: auto;
     background-color: grey;
+    text-align: center;
+    font-size: 2vw;
 }
 .div5 {
-    margin-left: 3em;
+    margin: auto;
     grid-row-start: 2;
     grid-column-start: 2;
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: auto;
     background-color: grey;
+    text-align: center;
+    font-size: 2vw;
 }
+/*# sourceMappingURL=style.c75182a4.css.map */
