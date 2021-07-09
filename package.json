@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/rizasal/make-it-rain.js#readme",
   "devDependencies": {
-    "@babel/core": "^7.14.6"
-  },
-  "dependencies": {
+    "@babel/core": "^7.14.6",
+    "parcel": "^2.0.0-beta.3.1",
     "rimraf": "^3.0.2"
-  }
+  },
+  "dependencies": {}
 }
