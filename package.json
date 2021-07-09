@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Add rain to your websites",
   "main": "make-it-rain.js",
+  "targets": {
+    "main": false
+  },
   "scripts": {
+    "build": "rimraf dist && parcel build site/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +22,8 @@
   "homepage": "https://github.com/rizasal/make-it-rain.js#readme",
   "devDependencies": {
     "@babel/core": "^7.14.6"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
   }
 }

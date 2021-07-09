@@ -1,3 +1,4 @@
 import makeItRain from '../make-it-rain'
 
-window.addEventListener('load', makeItRain)
+const rain = makeItRain()
+window.addEventListener('load', rain)
