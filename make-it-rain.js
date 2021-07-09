@@ -13,6 +13,9 @@ export default function makeItRain(options = {}) {
         document.body.appendChild(canvas);
 
         const noRainDivElements = document.getElementsByClassName('no-rain')
+        const nonBlockingElements = document.getElementsByClassName('no-rain-non-blocking')
+
+        let nonBlockingDivs = []
         let noRainDivs = []
 
         const rainSpeed = (options.rainSpeed || 15) * scale;
@@ -28,23 +31,30 @@ export default function makeItRain(options = {}) {
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
             );
         }
-        const updateNoRainDivsPosition = () => {
-            noRainDivs = []
-            for (let div of noRainDivElements) {
-                const boundingRect = div.getBoundingClientRect()
-                if (isInViewport(boundingRect)) {
-                    noRainDivs.push({
-                        left: boundingRect.left,
-                        right: boundingRect.right,
-                        top: boundingRect.top,
-                        bottom: boundingRect.bottom,
-                        width: boundingRect.width
-                    })
+        const updateNoRainDivsPosition = (divsList, divElements) => {
+            return () => {
+                divsList.length = 0
+                for (let div of divElements) {
+                    const boundingRect = div.getBoundingClientRect()
+                    if (isInViewport(boundingRect)) {
+                        divsList.push({
+                            left: boundingRect.left,
+                            right: boundingRect.right,
+                            top: boundingRect.top,
+                            bottom: boundingRect.bottom,
+                            width: boundingRect.width
+                        })
+                    }
                 }
             }
         }
-        updateNoRainDivsPosition()
-        window.addEventListener('scroll', updateNoRainDivsPosition)
+        const blockingRainDivsPositionUpdate = updateNoRainDivsPosition(noRainDivs, noRainDivElements)
+        const nonBlockingRainDivsPositionUpdate = updateNoRainDivsPosition(nonBlockingDivs, nonBlockingElements)
+        blockingRainDivsPositionUpdate()
+        nonBlockingRainDivsPositionUpdate()
+        console.log(nonBlockingDivs)
+        window.addEventListener('scroll', blockingRainDivsPositionUpdate)
+        window.addEventListener('scroll', nonBlockingRainDivsPositionUpdate)
 
         var ctx = canvas.getContext("2d");
         ctx.strokeStyle = "rgba(255,255,255, 0.7)";
@@ -113,9 +123,18 @@ export default function makeItRain(options = {}) {
             }
             // rainSplashBacks()
         }
+        const checkNonBlockingDiv = (x, y) => {
+            for (const div of nonBlockingDivs) {
+                if ((div.left <= x && x <= div.right) && div.top <= y && y <=div.bottom) {
+                    return true
+                }
+            }
+            return false
+        }
         const drawRain = (rain) => {
             for (const [x, y, z] of rain) {
-                drawLineOpacity(z, ctx, x, y, x, y + dropLength)
+                if (!checkNonBlockingDiv(x, y))
+                    drawLineOpacity(z, ctx, x, y, x, y + dropLength)
             }
         }
 

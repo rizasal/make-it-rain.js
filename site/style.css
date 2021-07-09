@@ -59,6 +59,16 @@ div {
     grid-row-start: 2;
     grid-column-start: 2;
     width: 80%;
+    height: 100%;
+    background-color: grey;
+    text-align: center;
+    font-size: 2vw;
+}
+.div6 {
+    margin: auto;
+    grid-row-start: 3;
+    grid-column-start: 2;
+    width: 80%;
     height: auto;
     background-color: grey;
     text-align: center;
