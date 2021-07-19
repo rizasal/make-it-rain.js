@@ -18,11 +18,50 @@
     <div class = "div4 no-rain">
         <p> Add the class "no-rain" to your div to block the div from rain</p>
     </div>
-    <div class = "div5 no-rain-non-blocking">
+    <!-- <div class = "div5 no-rain-non-blocking">
         <p> Rain passes behind this div!</p>
     </div>
     <div class = "div6">
         <p> Rain passes in front of this div!</p>
+    </div> -->
+    <div class = "main-text no-rain"> 
+        <div class = "button-rounded">
+            <span>npm i make-it-rain</span>
+        </div>
+        <h2>Usage</h2>
+        <pre class="code-snippet">
+            import makeItRain from 'make-it-rain'
+
+            const rain = makeItRain()
+            var rainObj;
+            window.addEventListener('load', () => {
+                rainObj = rain()
+            })
+
+            window.addEventListener('click', () => {
+                rainObj.startAnimation()
+            })
+        </pre>
+        <h2>Customizations</h2>
+        <div>
+            <p>
+                The makeItRain function accepts an object with the following parameters
+            </p>
+            <pre class="code-snippet">
+                { rainSpeed: 15,
+                dropLength = 20,
+                dropWidth: 3,
+                rainColor: '255,255,255'
+                }
+            </pre>
+        </div>
+        <h2>Return Object</h2>
+        <div>
+            <p> The makeItRain() function returns an object with the following properties</p>
+            <pre class="code-snippet">
+                {}
+            </pre>
+        </div>
     </div>
 </div>
 </body>

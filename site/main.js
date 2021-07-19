@@ -1,4 +1,10 @@
 import makeItRain from '../make-it-rain'
 
-const rain = makeItRain()
-window.addEventListener('load', rain)
+var rain 
+window.addEventListener('load', () => {
+   rain = makeItRain()
+})
+
+window.addEventListener('click', () => {
+    rain.startAnimation()
+})

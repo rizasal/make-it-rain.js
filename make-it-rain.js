@@ -1,5 +1,4 @@
 export default function makeItRain(options = {}) {
-    return function() {
         var canvas = document.createElement('canvas');
         canvas.style = 'position:fixed; left:0; top:0; pointer-events:none'
         canvas.id = 'make-it-rain-canvas';
@@ -52,7 +51,7 @@ export default function makeItRain(options = {}) {
         const nonBlockingRainDivsPositionUpdate = updateNoRainDivsPosition(nonBlockingDivs, nonBlockingElements)
         blockingRainDivsPositionUpdate()
         nonBlockingRainDivsPositionUpdate()
-        console.log(nonBlockingDivs)
+
         window.addEventListener('scroll', blockingRainDivsPositionUpdate)
         window.addEventListener('scroll', nonBlockingRainDivsPositionUpdate)
 
@@ -111,21 +110,21 @@ export default function makeItRain(options = {}) {
             for (let i = rain.length - 1; i > 0; i -= 1) {
                 if (rain[i][1] >= cvheight || checkNoRainDivs(rain[i])) {
                     const [left, top] = rain.splice(i, 1)[0]
-                    ctx.beginPath();
-                    ctx.arc(left + Math.random() * 10, top - Math.random() * 10, Math.random() * 3, 0, 2 * Math.PI, true);
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.arc(left + Math.random() * 10, top - Math.random() * 10, Math.random() * 3, 0, 2 * Math.PI, true);
-                    ctx.stroke();
+                    // ctx.beginPath();
+                    // ctx.arc(left + Math.random() * 10, top - Math.random() * 10, Math.random() * 3, 0, 2 * Math.PI, true);
+                    // ctx.stroke();
+                    // ctx.beginPath();
+                    // ctx.arc(left + Math.random() * 10, top - Math.random() * 10, Math.random() * 3, 0, 2 * Math.PI, true);
+                    // ctx.stroke();
                 } else {
                     rain[i][1] += rainSpeed // + Math.random() *3
                 }
             }
-            // rainSplashBacks()
+            rainSplashBacks()
         }
         const checkNonBlockingDiv = (x, y) => {
             for (const div of nonBlockingDivs) {
-                if ((div.left <= x && x <= div.right) && div.top <= y && y <=div.bottom) {
+                if ((div.left <= x && x <= div.right) && (div.top - dropLength) <= y && y <=div.bottom) {
                     return true
                 }
             }
@@ -150,13 +149,26 @@ export default function makeItRain(options = {}) {
             updateRain(rain)
         }
 
-        animate()
+        // animate()
 
         // click handler to add random rects
-        window.addEventListener('click', function () {
-            this.cancelAnimationFrame(animationNum)
-        });
+        // window.addEventListener('click', function () {
+        //     this.cancelAnimationFrame(animationNum)
+        // });
+
+        return {
+            stopAnimation: () => {
+                this.cancelAnimationFrame(animationNum)
+            },
+            startAnimation: () => {
+                animate()
+            },
+            clearScreen: () => {
+                ctx.clearRect(0, 0, cvwidth, cvheight)
+            },
+            updateNoRainDivsPosition
+        }
 
 
-    }
+    
 }

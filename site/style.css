@@ -74,3 +74,18 @@ div {
     text-align: center;
     font-size: 2vw;
 }
+
+.main-text {
+    margin: auto;
+    grid-row-start: 3;
+    grid-column: 1 / -1;
+    height: auto;
+    width: 80%;
+    background-color: aliceblue;
+}
+
+.code-snippet {
+    background-color: grey;
+    color:white;
+    width: auto;
+}
