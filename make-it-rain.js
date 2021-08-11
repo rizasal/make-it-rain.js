@@ -70,7 +70,6 @@ export default function makeItRain(options = {}) {
             drawLine(ctx, ...args)
         }
 
-        drawLine(ctx, 0, 0, 200, 200);
         var rain = []
         const initialSeed = cvwidth / (scale * 100);
 
@@ -148,13 +147,6 @@ export default function makeItRain(options = {}) {
             drawRain(rain)
             updateRain(rain)
         }
-
-        // animate()
-
-        // click handler to add random rects
-        // window.addEventListener('click', function () {
-        //     this.cancelAnimationFrame(animationNum)
-        // });
 
         return {
             stopAnimation: () => {

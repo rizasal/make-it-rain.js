@@ -7,7 +7,7 @@
     "main": false
   },
   "scripts": {
-    "start": "parcel site/index.html",
+    "start": "parcel site/index.html --no-cache",
     "build": "rimraf dist && parcel build site/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -17,62 +17,12 @@ body {
     grid-template-rows: repeat(3, 1fr);
 }
 
-div {
-    width: 200px;
-    height: 200px;
-}
-
 .main-header {
     margin: auto;
     width: auto;
     height: auto;
     font-size: 6em;
     color: white;
-}
-
-.div2 {
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    background-color: red;
-
-
-}
-.div3 {
-    position: absolute;
-    left: 30%;
-    top: 60%;
-    background-color: blue;
-}
-.div4 {
-    margin: auto;
-    grid-row-start: 2;
-    grid-column-start: 1;
-    width: 80%;
-    height: auto;
-    background-color: grey;
-    text-align: center;
-    font-size: 2vw;
-}
-.div5 {
-    margin: auto;
-    grid-row-start: 2;
-    grid-column-start: 2;
-    width: 80%;
-    height: 100%;
-    background-color: grey;
-    text-align: center;
-    font-size: 2vw;
-}
-.div6 {
-    margin: auto;
-    grid-row-start: 3;
-    grid-column-start: 2;
-    width: 80%;
-    height: auto;
-    background-color: grey;
-    text-align: center;
-    font-size: 2vw;
 }
 
 .main-text {
@@ -82,10 +32,25 @@ div {
     height: auto;
     width: 80%;
     background-color: aliceblue;
+    border-radius: 50px;
+    padding: 5%;
 }
 
 .code-snippet {
     background-color: grey;
     color:white;
-    width: auto;
+    width: 60%;
+    text-align:left;
+}
+
+.install-button {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: rgb(95, 75, 75);
+    border-radius:10px;
+    width:400px;
+    font-size: 2em;
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
