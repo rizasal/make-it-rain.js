@@ -1,11 +1,16 @@
+# make-it-rain.js
 
-Installation
+Add rain to any website. Exclude divs from rain by adding classes to them.
+
+See demo [here](https://make-it-rain-js.herokuapp.com/)
+
+## Installation
 
 ```
 npm i make-it-rain
 ```
 
-Usage
+## Usage
 
                     
 ```
@@ -52,7 +57,7 @@ The makeItRain function accepts an object with the following parameters
 ```
 { 
     rainSpeed: 15,
-    dropLength = 20,
+    dropLength: 20,
     dropWidth: 3,
     rainColor: '255,255,255'
 }
