@@ -55,6 +55,8 @@ export default function makeItRain(options = {}) {
             cvheight = canvas.height;
             blockingRainDivsPositionUpdate()
             nonBlockingRainDivsPositionUpdate()
+
+            initialSeed = cvwidth / (scale * 100)
         }
 
         const blockingRainDivsPositionUpdate = updateNoRainDivsPosition(noRainDivs, noRainDivElements)
