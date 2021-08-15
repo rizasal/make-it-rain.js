@@ -47,6 +47,16 @@ export default function makeItRain(options = {}) {
                 }
             }
         }
+
+        const onZoomChange = (event) => {
+            canvas.width = document.body.clientWidth || window.innerWidth;
+            canvas.height = document.body.clientHeight || window.innerHeight;
+            cvwidth = canvas.width;
+            cvheight = canvas.height;
+            blockingRainDivsPositionUpdate()
+            nonBlockingRainDivsPositionUpdate()
+        }
+
         const blockingRainDivsPositionUpdate = updateNoRainDivsPosition(noRainDivs, noRainDivElements)
         const nonBlockingRainDivsPositionUpdate = updateNoRainDivsPosition(nonBlockingDivs, nonBlockingElements)
         blockingRainDivsPositionUpdate()
@@ -54,6 +64,7 @@ export default function makeItRain(options = {}) {
 
         window.addEventListener('scroll', blockingRainDivsPositionUpdate)
         window.addEventListener('scroll', nonBlockingRainDivsPositionUpdate)
+        window.addEventListener('resize', onZoomChange)
 
         var ctx = canvas.getContext("2d");
         ctx.strokeStyle = "rgba(255,255,255, 0.7)";
@@ -71,8 +82,9 @@ export default function makeItRain(options = {}) {
         }
 
         var rain = []
-        const initialSeed = cvwidth / (scale * 100);
+        let initialSeed = cvwidth / (scale * 100);
 
+      
         const fillNewDrops = (rain) => {
             let r = Math.random() * initialSeed;
             for (let i = 0; i < r; i += 1) {
@@ -109,17 +121,17 @@ export default function makeItRain(options = {}) {
             for (let i = rain.length - 1; i > 0; i -= 1) {
                 if (rain[i][1] >= cvheight || checkNoRainDivs(rain[i])) {
                     const [left, top] = rain.splice(i, 1)[0]
-                    // ctx.beginPath();
-                    // ctx.arc(left + Math.random() * 10, top - Math.random() * 10, Math.random() * 3, 0, 2 * Math.PI, true);
-                    // ctx.stroke();
-                    // ctx.beginPath();
-                    // ctx.arc(left + Math.random() * 10, top - Math.random() * 10, Math.random() * 3, 0, 2 * Math.PI, true);
-                    // ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(left + Math.random() * 10, top - Math.random() * 10, Math.random() * 3, 0, 2 * Math.PI, true);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(left + Math.random() * 10, top - Math.random() * 10, Math.random() * 3, 0, 2 * Math.PI, true);
+                    ctx.stroke();
                 } else {
                     rain[i][1] += rainSpeed // + Math.random() *3
                 }
             }
-            rainSplashBacks()
+            // rainSplashBacks()
         }
         const checkNonBlockingDiv = (x, y) => {
             for (const div of nonBlockingDivs) {
@@ -158,7 +170,8 @@ export default function makeItRain(options = {}) {
             clearScreen: () => {
                 ctx.clearRect(0, 0, cvwidth, cvheight)
             },
-            updateNoRainDivsPosition
+            updateNoRainDivsPosition,
+            onZoomChange
         }
 
 

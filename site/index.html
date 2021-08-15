@@ -30,14 +30,15 @@
     <div class = "div6">
         <p> Rain passes in front of this div!</p>
     </div> -->
-        <div class="main-text no-rain">
+        <div class="main-text">
+            <div class="each-heading no-rain-non-blocking">
             <h2> Installation </h2>
             <h4 class="install-button">npm i make-it-rain</h4>
-
-            <h2>Usage</h2>
-
-            <pre>
-                <code>
+            </div>
+            <div class="each-heading no-rain-non-blocking">
+                <h2>Usage</h2>
+                <pre>
+                    <code>
 import makeItRain from 'make-it-rain'
 
 const rain = makeItRain()
@@ -49,26 +50,27 @@ window.addEventListener('load', () => {
 window.addEventListener('click', () => {
     rainObj.startAnimation()
 })
-                </code>
-        </pre>
-        <p> Add the class "no-rain" to your div to block the div from rain</p>
-
-            <p> There are 2 types of classes you can apply to the divs </p>
-            <h4>no-rain</h4>
-            <p>This class blocks the rain and any elements below it would not have rain. There would be splash effects
-                near the top-edge</p>
-            <h4>no-rain-non-blocking</h4>
-            <p>This class makes the rain go behind the div. There will not be any splash effects</p>
-            <pre>
-                <code>
+                    </code>
+                        </pre>
+                        <p> Add the class "no-rain" to your div to block the div from rain</p>
+                <p> There are 2 types of classes you can apply to the divs </p>
+                <h4>no-rain</h4>
+                <p>This class blocks the rain and any elements below it would not have rain. There would be splash effects
+                    near the top-edge</p>
+                <h4>no-rain-non-blocking</h4>
+                <p>This class makes the rain go behind the div. There will not be any splash effects</p>
+                <pre>
+                    <code>
 &lt;div class="no-rain"&gt;
     This div will block the raindrops at the top of the div
 &lt;/div&gt;
 &lt;div class="no-rain-non-blocking"&gt;
     This will silently let the rain pass through behind the div
 &lt;/div&gt;
-                </code>
-            </pre>
+                    </code>
+                </pre>
+            </div>
+            <div class="each-heading no-rain-non-blocking">
             <h2>Customizations</h2>
             <div>
                 <p>
@@ -86,6 +88,8 @@ window.addEventListener('click', () => {
                 
             </pre>
             </div>
+        </div>
+        <div class="each-heading no-rain-non-blocking">
             <h2>Return Object</h2>
             <div>
                 <p> The makeItRain() function returns an object with the following properties</p>
@@ -110,6 +114,7 @@ window.addEventListener('click', () => {
             </pre>
             </div>
         </div>
+    </div>
     </div>
     <script>hljs.highlightAll();</script>
 </body>

@@ -9,7 +9,7 @@ body {
 .container {
     display: grid;
     width: 100%;
-    height: 100vh;
+    height: 60vh;
 }
 
 .container.page2 {
@@ -31,9 +31,17 @@ body {
     grid-column: 1 / -1;
     height: auto;
     width: 80%;
-    background-color: aliceblue;
+    /* background-color: antiquewhite; */
     border-radius: 50px;
     padding: 5%;
+}
+
+.each-heading {
+    border-radius: 20px;
+    background-color: antiquewhite;
+    height: auto;
+    padding: 5%;
+    margin-top: 100px;
 }
 
 .code-snippet {
