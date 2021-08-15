@@ -7,7 +7,7 @@ See demo [here](https://make-it-rain-js.herokuapp.com/)
 ## Installation
 
 ```
-npm i make-it-rain
+npm i make-it-rain-js
 ```
 
 ## Usage
