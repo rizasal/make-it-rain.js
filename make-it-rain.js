@@ -164,7 +164,7 @@ export default function makeItRain(options = {}) {
 
         return {
             stopAnimation: () => {
-                this.cancelAnimationFrame(animationNum)
+                cancelAnimationFrame(animationNum)
             },
             startAnimation: () => {
                 animate()

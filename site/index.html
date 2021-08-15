@@ -41,14 +41,13 @@
                     <code>
 import makeItRain from 'make-it-rain'
 
-const rain = makeItRain()
-var rainObj;
+var rain 
 window.addEventListener('load', () => {
-    rainObj = rain()
+   rain = makeItRain()
+   rain.startAnimation()
 })
-
 window.addEventListener('click', () => {
-    rainObj.startAnimation()
+   rain.stopAnimation()
 })
                     </code>
                         </pre>
